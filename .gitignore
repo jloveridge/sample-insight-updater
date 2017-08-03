@@ -1,0 +1,12 @@
+.vscode
+*.js
+creds
+data
+node_modules
+
+# Mac files
+.DS_Store
+._*
+
+# Misc
+*.tgz
