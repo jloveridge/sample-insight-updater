@@ -9,7 +9,9 @@
   },
   "devDependencies": {
     "@types/superagent": "^3.5.3",
-    "@types/yargs": "^8.0.2"
+    "@types/yargs": "^8.0.2",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
   },
   "scripts": {
     "build": "tsc -p .",
