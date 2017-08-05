@@ -54,7 +54,7 @@ async function processData(creds: Creds, type: string, data: any[], isSingleMode
             if (!response.ok) {
                 updateFailed(idx, entry);
             } else {
-                console.log(response.body);
+                process.stdout.write('.');
             }
             idx++;
         }
