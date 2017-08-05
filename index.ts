@@ -38,6 +38,12 @@ async function processData(creds: Creds, type: string, data: any[], isSingleMode
     if (isSingleMode) {
         let idx = 0;
         for (const entry of data) {
+            Object.keys(entry).forEach(k => {
+                // added to correct for term start/end dates having rogue spaces in the value
+                if (k.endsWith('_date')) {
+                    entry[k] = entry[k].replace(/\s/g, '');
+                }
+            });
             const response = await (
                 request
                     .post(`${url}s/${entry.id}`)
