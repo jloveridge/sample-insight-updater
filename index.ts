@@ -94,7 +94,7 @@ async function submitBatches(opts: SyncOpts) {
         if (opts.batchSize == 1) {
             for (const obj of data) {
                 batch = obj;
-                await submit(obj, token, `${url}/${obj.id}`);
+                await submit(obj, token, `${url}/${encodeURIComponent(obj.id)}`);
                 displayProgress();
                 index++;
                 numBatches++;
