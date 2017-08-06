@@ -151,7 +151,7 @@ async function syncData(opts: SyncOpts) {
 }
 
 
-async function main() {
+export async function main() {
     const parsed = yargs
         .option('batch-size', {
             alias: 'b',

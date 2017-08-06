@@ -1,21 +1,17 @@
 {
   "name": "gradecam-api-uploader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Enables sending JSON files to GradeCam using the legacy Insight API",
-  "main": "index.js",
+  "main": "index.ts",
   "dependencies": {
-    "superagent": "^3.5.2",
-    "yargs": "^8.0.2"
+    "superagent": "~3.5.2",
+    "ts-node": "~3.3.0",
+    "typescript": "~2.4.2",
+    "yargs": "~8.0.2"
   },
   "devDependencies": {
-    "@types/superagent": "^3.5.3",
-    "@types/yargs": "^8.0.2",
-    "ts-node": "^3.3.0",
-    "typescript": "^2.4.2"
-  },
-  "scripts": {
-    "build": "tsc -p .",
-    "clean": "rm index.js"
+    "@types/superagent": "~3.5.3",
+    "@types/yargs": "~8.0.2"
   },
   "keywords": [
     "gradecam",
