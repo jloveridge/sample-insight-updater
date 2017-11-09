@@ -27,8 +27,7 @@ function combineFiles(inDir: string, outDir: string) {
             }
         }
         const inFile = path.resolve(inDir, filename);
-        // ts-node:disable-next-line
-        const dat = require(inFile);
+        const dat: any[] = JSON.parse(fs.readFileSync(inFile).toString());
         for (const item of dat) {
             data.push(item);
         }

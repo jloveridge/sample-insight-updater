@@ -29,12 +29,13 @@ function fatal(msg: string) {
 function loadFile(filename: string) {
     try {
         if (!filename.endsWith('.json')) {
-            throw new Error("Invalid filename: '${filename}'. Must end in '.js'/'.json'.");
+            throw new Error(`Invalid filename: '${filename}'. Must end in '.json'.`);
         }
-        if (!(filename.startsWith(path.sep))) {
-            filename = ['.', filename].join(path.sep);
+        const stats = fs.statSync(filename);
+        if (!stats.isFile()) {
+            throw new Error(`Invalid filename: '${filename}'`)
         }
-        return require(filename);
+        return JSON.parse(fs.readFileSync(filename).toString());
     } catch (e) {
         fatal(e.message);
     }
@@ -118,9 +119,6 @@ async function submitBatches(opts: SyncOpts) {
         }
     } catch (e) {
         console.error('\n\nERROR:', e.message);
-        if (opts.batchSize != 1) {
-            console.log(results);
-        }
         throw new Error(`failed at index ${index}, data: ${JSON.stringify(batch, null, '  ')}`);
     } finally {
         console.log(`\nProcessed ${processed}/${total} in ${numBatches} batches.`);
